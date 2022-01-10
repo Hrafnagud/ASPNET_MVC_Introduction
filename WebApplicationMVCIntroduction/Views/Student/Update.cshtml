@@ -1,0 +1,40 @@
+﻿@using WebApplicationMVCIntroduction.Models;
+@model Student
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update Student Information</h2>
+<br />
+
+@*<form action="Update" method="post">
+        <label>Name</label>
+        <input type="text" name="Name" value="@Model.Name" class="form-control" /> <br />
+        <label>Surname</label>
+        <input type="text" name="Surname" value="@Model.Surname" class="form-control" /> <br />
+        <label>Birth Date</label>
+        <input type="datetime" name="BirthDate" value="@Model.BirthDate.ToShortDateString()" class="form-control" />
+        <br />
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <input type="submit" class="btn btn-primary" value="Update" />
+    </form>*@
+
+
+@using (Html.BeginForm("Update", "Student", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.Id)
+
+    @Html.Label("Name")
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Surname)
+    @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.BirthDate)
+    @Html.TextBoxFor(x => x.BirthDate, new { @class = "form-control" })
+    <br />
+    @*@Html.ActionLink("Update", "Update", "Student", new { }, new { @class = "btn btn-primary" })*@
+    <input type="submit" class="btn btn-primary" value="Update" />
+}
+
+

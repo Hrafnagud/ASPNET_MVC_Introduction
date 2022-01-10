@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add New Student</h2>
+
+<form action="Add" method="post">
+    <label>Student Name</label>
+    <input class="form-control" type="text" name="Name" placeholder="Name.." />
+    <label>Student Surname</label>
+    <input class="form-control" type="text" name="Surname" placeholder="Surname" />
+    <label>Student Birth Date</label>
+    <input class="form-control" type="date" name="BirthDate" placeholder="BirtDate"/>
+    <br />
+    <input class="btn btn-lg btn-primary" type="submit" value="ADD" />
+    <a href="/Student/List" class="btn btn-lg btn-default">Go Back to List</a>
+</form>

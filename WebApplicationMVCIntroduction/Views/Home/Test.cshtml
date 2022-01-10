@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Test";
+}
+@{ 
+    int listNumber = 1; ;
+}
+<h2>Test</h2>
+<br />
+<table class="table table-hover">
+    <tr>
+        <th>List No</th>
+        <th>ViewBag</th>
+        <th>ViewData</th>
+        <th>TempData</th>
+    </tr>
+    <tr>
+        <td>@listNumber</td>
+        <td>@ViewBag.Name</td>
+        <td>@ViewData["Name"]</td>
+        <td>@TempData["YourName"]</td>
+    </tr>
+</table>
+
