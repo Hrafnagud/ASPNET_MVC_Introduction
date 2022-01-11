@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -8,11 +9,13 @@ namespace WebApplicationMVCIntroduction.Models
     public class Student : IEquatable<Student>
     {
         public int Id { get; set; }
+        [Required(ErrorMessage = "Name field can't be empty")]
+        [StringLength(maximumLength: 20, MinimumLength = 2, ErrorMessage = "Name field must have amount of characters between 2-20")]
         public string Name { get; set; }
-
+        [Required(ErrorMessage = "Surname field can't be empty")]
+        [StringLength(maximumLength: 20, MinimumLength = 2, ErrorMessage = "Surname field must have amount of characters between 2-20")]
         public string Surname { get; set; }
-
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
 
         public static List<Student> StudentList { get; set; } = new List<Student>();
 

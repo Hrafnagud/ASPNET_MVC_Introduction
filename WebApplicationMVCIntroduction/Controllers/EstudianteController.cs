@@ -39,10 +39,14 @@ namespace WebApplicationMVCIntroduction.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
-                student.Id = Student.StudentList.Count + 1;
-                Student.StudentList.Add(student);
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    // TODO: Add insert logic here
+                    student.Id = Student.StudentList.Count + 1;
+                    Student.StudentList.Add(student);
+                    return RedirectToAction("Index");
+                }
+                return View();
             }
             catch
             {
@@ -68,14 +72,21 @@ namespace WebApplicationMVCIntroduction.Controllers
             try
             {
                 // TODO: Add update logic here
-                if (student.Id > 0)
+                if (!ModelState.IsValid)
                 {
-                    var oldStudentRecord = Student.StudentList.FirstOrDefault(x => x.Id == student.Id);
-                    oldStudentRecord.Name = student.Name;
-                    oldStudentRecord.Surname = student.Surname;
-                    oldStudentRecord.BirthDate = student.BirthDate;
+                    return View();
                 }
-                return RedirectToAction("Index");
+                else
+                {
+                    if (student.Id > 0)
+                    {
+                        var oldStudentRecord = Student.StudentList.FirstOrDefault(x => x.Id == student.Id);
+                        oldStudentRecord.Name = student.Name;
+                        oldStudentRecord.Surname = student.Surname;
+                        oldStudentRecord.BirthDate = student.BirthDate;
+                    }
+                    return RedirectToAction("Index"); 
+                }
             }
             catch
             {
