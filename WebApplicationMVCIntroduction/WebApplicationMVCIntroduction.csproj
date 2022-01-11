@@ -120,6 +120,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\EstudianteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
@@ -170,6 +171,11 @@
     <Content Include="Views\Student\Add.cshtml" />
     <Content Include="Views\Student\Update.cshtml" />
     <Content Include="Views\Student\Delete.cshtml" />
+    <Content Include="Views\Estudiante\Index.cshtml" />
+    <Content Include="Views\Estudiante\Details.cshtml" />
+    <Content Include="Views\Estudiante\Create.cshtml" />
+    <Content Include="Views\Estudiante\Edit.cshtml" />
+    <Content Include="Views\Estudiante\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
