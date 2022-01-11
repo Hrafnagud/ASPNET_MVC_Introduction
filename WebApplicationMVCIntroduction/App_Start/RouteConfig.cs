@@ -16,7 +16,7 @@ namespace WebApplicationMVCIntroduction
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Student", action = "List", id = UrlParameter.Optional }   //Configuring default page when reaching web at first
             );
         }
     }

@@ -1,0 +1,35 @@
+﻿@using WebApplicationMVCIntroduction.Models;
+@model Student
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Student Information</h2>
+<br />
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(x => x.Name)
+    </dt>
+    <dd>
+        @Html.DisplayFor(x => x.Name)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(x => x.Surname)
+    </dt>
+    <dd>
+        @Html.DisplayFor(x => x.Surname)
+    </dd>
+</dl>
+<br />
+
+<input type="hidden" name="@Model.Id" />
+@*@Html.HiddenFor(x=> x.Id)*@   <!--Alternative for above snippet-->
+
+@using (Html.BeginForm("Delete", "Student", FormMethod.Post))
+{
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-danger" />
+    </div>
+}
+

@@ -26,9 +26,15 @@
             <td>@item.Surname</td>
             <td>@item.BirthDate.ToString("dd.MM.yyyy")</td>
             <td>
-                <a href="Update/@item.Id" class="btn btn-warning">Update</a>
+                @*<a href="Update/@item.Id" class="btn btn-warning">Update</a>*@
+                @Html.ActionLink("Update", "Update", "Student", new { id = item.Id }, new { @class = "btn btn-warning" })
             </td>
-            <td><a href="Delete/@item.Id" class="btn btn-danger">Delete</a></td>
+            <td>
+                @*<a href="Delete/@item.Id" class="btn btn-danger">Delete</a>*@
+                @Html.ActionLink("Delete", "Delete", "Student", new { id = item.Id }, new { @class = "btn btn-danger" })
+                <input type="button" value="Delete" class="btn btn-primary" onclick="DeleteConfirm(@item.Id)" />
+
+            </td>
         </tr>
     }
 
@@ -37,3 +43,26 @@
 <br />
 
 <a href="/Student/Add" class="btn btn-success">Add New Students</a>
+
+<script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript">
+    function DeleteConfirm(id) {
+        var x = confirm("Are you sure you want to delete?");
+        if (x) {
+            $.ajax({
+                type: "Post",
+                url: "/Student/DeleteConfirm/" + id,
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                success: function (response) {
+                    alert("Deleted");
+                    window.location.href = "/Student/List";
+                },
+                error: function () {
+                    alert("Unexpected error. Content has not been deleted!");
+                    window.location.hre = "/Student/List";
+                }
+            });
+        }
+    }
+</script>

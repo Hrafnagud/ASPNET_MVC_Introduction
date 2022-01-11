@@ -5,7 +5,7 @@ using System.Web;
 
 namespace WebApplicationMVCIntroduction.Models
 {
-    public class Student
+    public class Student : IEquatable<Student>
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -34,5 +34,9 @@ namespace WebApplicationMVCIntroduction.Models
             return StudentList;
         }
 
+        public bool Equals(Student other)
+        {
+            return Id == other.Id;
+        }
     }
 }
